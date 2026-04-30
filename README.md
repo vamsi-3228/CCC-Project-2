@@ -1,4 +1,3 @@
-# CCC-Project-2
 # Smart Coin Change Calculator
 
 A web-based tool that calculates the minimum number of coins or notes needed for a given amount using the **Greedy Algorithm**, with an option to compare against the **optimal Dynamic Programming (DP)** solution.
