@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Coin Change Calculator</title>
+    <meta name="description" content="A tool to calculate the minimum number of Indian currency denominations for a given amount using a greedy algorithm.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Smart Coin Change Calculator</h1>
+            <p>Determine the minimum number of coins/notes needed using the Greedy approach.</p>
+        </header>
+
+        <section class="input-section">
+            <div class="input-group">
+                <label for="amount">Enter Amount:</label>
+                <input type="number" id="amount" placeholder="e.g., 6" min="1">
+            </div>
+
+            <div class="input-group">
+                <label for="denominations">Enter Coin Denominations (comma-separated):</label>
+                <input type="text" id="denominations" placeholder="e.g., 1, 3, 4" value="1, 3, 4">
+            </div>
+            
+            <div class="options-group">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="compare-dp">
+                    <span class="slider"></span>
+                </label>
+                <span>Compare with Optimal (DP)</span>
+            </div>
+
+            <div class="button-group">
+                <button id="calculate-btn" class="primary-btn">Calculate Change</button>
+                <button id="reset-btn" class="secondary-btn">Reset</button>
+            </div>
+            
+            <div id="error-message" class="error-message hidden"></div>
+        </section>
+
+        <section id="output-section" class="output-section hidden">
+            <div class="results-container">
+                <div class="result-card" id="greedy-result-card">
+                    <h2>Greedy Approach</h2>
+                    <p class="total-coins">Total coins/notes: <span id="greedy-total-coins">0</span></p>
+                    <table id="greedy-table">
+                        <thead>
+                            <tr>
+                                <th>Coin/Note</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="greedy-table-body">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                    
+                    <div class="step-by-step">
+                        <h3>Step-by-Step Breakdown</h3>
+                        <ul id="greedy-steps">
+                            <!-- Steps injected by JS -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="result-card hidden" id="dp-result-card">
+                    <h2>Optimal (DP) Approach</h2>
+                    <p class="info-note">Greedy may not always give the optimal solution for arbitrary denominations, but for standard Indian currency, it is optimal.</p>
+                    <p class="total-coins">Total coins/notes: <span id="dp-total-coins">0</span></p>
+                    <table id="dp-table">
+                        <thead>
+                            <tr>
+                                <th>Coin/Note</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dp-table-body">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
